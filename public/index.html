@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Chatups</title>
+</head>
+
+<body>
+
+  <!-- <section id="loginScreen">
+    <form id="formLogin">
+      <label for="username">
+        <h1>Login</h1>
+      </label>
+      <div>
+        <input type="text" name="username" id="username" placeholder="Username" required maxlength="10">
+        <button type="submit" id="submit">&#x2713;</button>
+      </div>
+    </form>
+
+  </section> -->
+
+  <section id="chatRoom">
+
+    <header>
+      <div class="top_side">
+        <ul>
+          <li id="date">Date Error</li>
+          <li id="time">Time Error</li>
+        </ul>
+      </div>
+    </header>
+
+    <section id="users">
+      <div id="you" class="user">
+        <img class="profile" src="images/profile/guest.png" alt="Profile" />
+        <p id="yourname" class="name">Username</p>
+      </div>
+    </section>
+    <section id="chats">
+      <div id="chatsLayout">asd</div>
+      <form id="message">
+        <input type="text"  id="messageInput" placeholder="Type a message..">
+        <button type="submit" id="sendMessage">&#x2709;</button>
+      </form>
+    </section>
+
+    <footer>@Created By Krypton Alpha</footer>
+  </section>
+</body>
+
+
+<!-- <script src="/socket.io/socket.io.js"></script>
+<script>
+  const socket = io();
+  const formLogin = document.getElementById('formLogin');
+  const input = document.getElementById('input');
+  const messages = document.getElementById('messages');
+
+  formLogin.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const loginScreen = document.getElementById('loginScreen');
+    const chatRoom = document.getElementById('chatRoom');
+
+    loginScreen.style.display = 'none';
+    chatRoom.style.display = 'grid';
+
+    const username = document.documentElement('username');
+    socket.emit('login')
+    // if (input.value) {
+    //   socket.emit('chat message', input.value);
+    //   input.value = '';
+    // }
+  });
+
+  socket.on('chat message', (msg) => {
+    const li = document.createElement('li');
+    li.textContent = msg;
+    messages.appendChild(li);
+    messages.scrollTop = messages.scrollHeight;
+  });
+</script> -->
+
+<!-- <script>
+  const formEle = document.getElementById("form");
+  formEle.addEventListener('submit', (event) => {
+    event.preventDefault(); // Mencegah submit form default
+
+    const loginScreen = document.getElementById('loginScreen');
+    const chatRoom = document.getElementById('chatRoom');
+
+
+
+    loginScreen.style.display = 'none';
+    chatRoom.style.display = 'grid';
+
+
+  });
+</script> -->
+
+<script>
+
+  function showTime() {
+    var timedata = new Date();
+    var day = timedata.getDay();
+    var date = timedata.getDate();
+    var month = timedata.getMonth();
+    var year = timedata.getFullYear();
+    var hour = timedata.getHours();
+    var minute = timedata.getMinutes();
+    var second = timedata.getSeconds();
+
+    switch (day) {
+      case 0: day = "Minggu"; break;
+      case 1: day = "Senin"; break;
+      case 2: day = "Selasa"; break;
+      case 3: day = "Rabu"; break;
+      case 4: day = "Kamis"; break;
+      case 5: day = "Jum\'at"; break;
+      case 6: day = "Sabtu"; break;
+      default: "Day Error";
+    }
+
+    switch (month) {
+      case 0: month = "Januari"; break;
+      case 1: month = "Februari"; break;
+      case 2: month = "Maret"; break;
+      case 3: month = "April"; break;
+      case 4: month = "Mei"; break;
+      case 5: month = "Juni"; break;
+      case 6: month = "Juli"; break;
+      case 7: month = "Agustus"; break;
+      case 8: month = "September"; break;
+      case 9: month = "Oktober"; break;
+      case 10: month = "November"; break;
+      case 11: month = "Desember"; break;
+      default: "Month Error";
+    }
+
+    date = date < 10 ? "0" + date : date;
+    hour = hour < 10 ? "0" + hour : hour;
+    minute = minute < 10 ? "0" + minute : minute;
+    second = second < 10 ? "0" + second : second;
+
+    var date_data = day + ", " + date + " " + month + " " + year;
+    var time_data = hour + " : " + minute + " : " + second;
+
+    document.getElementById("date").innerHTML = date_data;
+    document.getElementById("time").innerHTML = time_data;
+
+    setTimeout(showTime, 1000);
+  }
+  document.addEventListener('DOMContentLoaded', showTime); 
+</script>
+
+</html>
